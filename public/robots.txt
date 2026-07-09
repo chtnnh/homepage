@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://me.chtnnhfoundation.org/sitemap-index.xml

@@ -7,7 +7,7 @@ const projects = [
 		description:
 			"Watch party with mobile-friendly UI, audio-only mode for low bandwidth, chat, reactions, flexible queue controls and much more.",
 		meta: "TypeScript · Streaming · Watch party",
-		href: "https://github.com/chtnnh/together",
+		href: "https://together.chtnnhfoundation.org",
 		index: "01",
 	},
 	{
@@ -92,6 +92,41 @@ const roleGroups = [roles.slice(0, 4), roles.slice(4)];
 const title = "Chaitanya Mittal — Software Engineer & Poet";
 const description =
 	"Senior software engineer in Dubai building reliable AI and backend systems, open-source tools, and the occasional poem.";
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL("/og/default.png", Astro.site).href;
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Chaitanya Mittal",
+	givenName: "Chaitanya",
+	familyName: "Mittal",
+	jobTitle: "Senior Software Engineer",
+	description,
+	worksFor: { "@type": "Organization", name: "CodeAnt AI" },
+	address: { "@type": "PostalAddress", addressLocality: "Dubai" },
+	url: "https://me.chtnnhfoundation.org",
+	image: ogImage,
+	hasOccupation: [
+		{ "@type": "Occupation", name: "Software Engineer" },
+		{ "@type": "Occupation", name: "Musician" },
+		{ "@type": "Occupation", name: "Poet" },
+	],
+	knowsAbout: [
+		"Software engineering",
+		"Artificial intelligence",
+		"Backend infrastructure",
+		"Open source software",
+		"Music",
+		"Poetry",
+	],
+	sameAs: [
+		"https://github.com/chtnnh",
+		"https://www.linkedin.com/in/chaitannah",
+		"https://www.amazon.com/stores/Chaitanya-Mittal/author/B0DJFPHKM1",
+		"https://youtube.com/@chtnnh",
+		"https://together.chtnnhfoundation.org",
+	],
+};
 ---
 
 <!doctype html>
@@ -101,11 +136,19 @@ const description =
 		<meta name="viewport" content="width=device-width" />
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#f0eadb" />
+		<link rel="canonical" href={canonical} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://me.chtnnhfoundation.org/" />
-		<meta name="twitter:card" content="summary" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Chaitanya Mittal portfolio" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -121,20 +164,7 @@ const description =
 			document.documentElement.dataset.theme =
 				queryTheme === "light" || queryTheme === "dark" ? queryTheme : savedTheme || preferredTheme;
 		</script>
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "Person",
-			name: "Chaitanya Mittal",
-			jobTitle: "Senior Software Engineer",
-			worksFor: { "@type": "Organization", name: "CodeAnt AI" },
-			address: { "@type": "PostalAddress", addressLocality: "Dubai" },
-			url: "https://me.chtnnhfoundation.org",
-			sameAs: [
-				"https://github.com/chtnnh",
-				"https://www.linkedin.com/in/chaitannah",
-				"https://www.amazon.com/stores/Chaitanya-Mittal/author/B0DJFPHKM1",
-			],
-		})} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
 	<body>
 		<a class="skip-link" href="#main">Skip to content</a>
@@ -364,6 +394,7 @@ const description =
 			<div class="site-footer shell">
 				<p>© {new Date().getFullYear()} Chaitanya Mittal</p>
 				<div>
+					<a href="https://together.chtnnhfoundation.org" target="_blank" rel="noreferrer">Together</a>
 					<a href="https://github.com/chtnnh" target="_blank" rel="noreferrer">GitHub</a>
 					<a href="https://www.linkedin.com/in/chaitannah" target="_blank" rel="noreferrer">LinkedIn</a>
 					<a href="https://www.amazon.com/stores/Chaitanya-Mittal/author/B0DJFPHKM1" target="_blank" rel="noreferrer">Amazon</a>
