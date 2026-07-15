@@ -728,6 +728,35 @@ h2 em {
 	line-height: 1.65;
 }
 
+.webring {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: clamp(1.5rem, 4vw, 3rem);
+	padding-block: clamp(3rem, 6vw, 5rem);
+	border-top: 1px solid var(--line);
+}
+
+.webring a {
+	font-size: 0.78rem;
+	color: var(--ink-soft);
+	text-decoration: none;
+	transition: color 250ms ease;
+}
+
+.webring a:hover {
+	color: var(--ink);
+	text-decoration: underline;
+}
+
+.webring a:nth-child(2) {
+	color: var(--accent);
+}
+
+.webring a:nth-child(2):hover {
+	color: var(--ink);
+}
+
 .contact {
 	padding-block: clamp(7rem, 15vw, 14rem);
 	text-align: center;
