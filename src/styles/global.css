@@ -729,31 +729,49 @@ h2 em {
 }
 
 .webring {
+	padding-block: clamp(3rem, 6vw, 5rem);
+	border-top: 1px solid var(--line);
+	text-align: center;
+}
+
+.webring-title {
+	margin: 0 0 1.25rem;
+	color: var(--accent);
+}
+
+.webring-title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.webring-title a:hover {
+	text-decoration: underline;
+}
+
+.webring-nav {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: clamp(1.5rem, 4vw, 3rem);
-	padding-block: clamp(3rem, 6vw, 5rem);
-	border-top: 1px solid var(--line);
 }
 
-.webring a {
+.webring-nav a {
 	font-size: 0.78rem;
 	color: var(--ink-soft);
 	text-decoration: none;
 	transition: color 250ms ease;
 }
 
-.webring a:hover {
+.webring-nav a:hover {
 	color: var(--ink);
 	text-decoration: underline;
 }
 
-.webring a:nth-child(2) {
+.webring-nav a:nth-child(2) {
 	color: var(--accent);
 }
 
-.webring a:nth-child(2):hover {
+.webring-nav a:nth-child(2):hover {
 	color: var(--ink);
 }
 
