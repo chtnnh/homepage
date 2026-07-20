@@ -1,5 +1,9 @@
 ---
 import "../styles/global.css";
+import wikimediaLogo from "../assets/logos/wikimedia.svg?raw";
+import questbookLogo from "../assets/logos/questbook.svg?raw";
+import sourcegraphLogo from "../assets/logos/sourcegraph.svg?raw";
+import ivyLogo from "../assets/logos/ivy.svg?raw";
 
 const projects = [
 	{
@@ -89,6 +93,29 @@ const roles = [
 
 const roleGroups = [roles.slice(0, 4), roles.slice(4)];
 
+const ossContributions = [
+	{
+		name: "Wikimedia Foundation",
+		href: "https://www.wikimedia.org/",
+		logo: wikimediaLogo,
+	},
+	{
+		name: "Questbook",
+		href: "https://questbook.xyz",
+		logo: questbookLogo,
+	},
+	{
+		name: "Sourcegraph",
+		href: "https://sourcegraph.com/",
+		logo: sourcegraphLogo,
+	},
+	{
+		name: "Ivy",
+		href: "https://github.com/unifyai/ivy",
+		logo: ivyLogo,
+	},
+];
+
 const title = "Chaitanya Mittal — Software Engineer & Poet";
 const description =
 	"Senior software engineer in Dubai building reliable AI and backend systems, open-source tools, and the occasional poem.";
@@ -169,14 +196,14 @@ const structuredData = {
 	<body>
 		<a class="skip-link" href="#main">Skip to content</a>
 		<header class="site-header shell">
-			<a class="brand" href="#top" target="_blank" rel="noreferrer" aria-label="Chaitanya Mittal, home">
+			<a class="brand" href="#top" aria-label="Chaitanya Mittal, home">
 				<span class="monogram" lang="ta" aria-hidden="true">ச</span>
 				<span class="brand-name">Chaitanya Mittal</span>
 			</a>
 			<nav aria-label="Primary navigation">
-				<a href="#experience" target="_blank" rel="noreferrer">Experience</a>
-				<a href="#work" target="_blank" rel="noreferrer">Projects</a>
-				<a href="#writing" target="_blank" rel="noreferrer">Creative</a>
+				<a href="#experience">Experience</a>
+				<a href="#work">Projects</a>
+				<a href="#writing">Creative</a>
 			</nav>
 			<div class="header-actions">
 				<a class="header-resume" href="/Chaitanya-Mittal-Resume.pdf" target="_blank" rel="noreferrer">
@@ -208,7 +235,7 @@ const structuredData = {
 						for code security. Elsewhere, I explore infrastructure, open source, and poetry.
 					</p>
 					<div class="hero-links reveal">
-						<a class="text-link" href="#experience" target="_blank" rel="noreferrer">Explore experience <span>↘</span></a>
+						<a class="text-link" href="#experience">Explore experience <span>↘</span></a>
 						<a class="text-link quiet" href="mailto:hello@chtnnhfoundation.org" target="_blank" rel="noreferrer">Say hello <span>↗</span></a>
 					</div>
 				</div>
@@ -307,6 +334,20 @@ const structuredData = {
 					<p class="section-number mono">03 / PROJECTS</p>
 					<h2 id="work-title">Systems, experiments,<br />and open-source work.</h2>
 					<p>Selected for the questions they explore, not the size of the repository.</p>
+				</div>
+
+				<div class="oss-logos reveal">
+					<p class="oss-logos__label mono">Contributed to</p>
+					<ul class="oss-logos__list">
+						{ossContributions.map((contribution) => (
+							<li>
+								<a href={contribution.href} target="_blank" rel="noreferrer">
+									<span class="visually-hidden">{contribution.name}</span>
+									<Fragment set:html={contribution.logo} />
+								</a>
+							</li>
+						))}
+					</ul>
 				</div>
 
 				<div class="project-list">
